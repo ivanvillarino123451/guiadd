@@ -1,5 +1,4 @@
 package Admin;
-
 import user.usersForm;
 import config.PanelPrinter;
 import java.awt.Image;
@@ -10,6 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import user.usersForm;
 
 
 
@@ -105,12 +105,12 @@ public class individualPrinting extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         name7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        at = new javax.swing.JLabel();
+        st = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        us = new javax.swing.JLabel();
         image = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        ss = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,7 +137,7 @@ public class individualPrinting extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(550, 0, 110, 60);
+        jLabel5.setBounds(650, 0, 110, 60);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 760, 60);
@@ -147,74 +147,74 @@ public class individualPrinting extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ST.CECILIA'S COLLEGE - CEBU INC.");
+        jLabel1.setText("GRADE TRACKER SYSTEM");
         page.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 410, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Poblacion Ward II, Minglanilla, cebu");
-        page.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 230, 30));
+        jLabel3.setText("ivan villarino");
+        page.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 230, 30));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         page.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 86, 855, 16));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("First Name:");
         page.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 100, 30));
 
         fn.setBackground(new java.awt.Color(51, 51, 51));
         fn.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        fn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         page.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 160, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Last Name:");
         page.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 100, 30));
 
         ln.setBackground(new java.awt.Color(51, 51, 51));
         ln.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        ln.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        page.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 219, 160, 30));
+        ln.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        page.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 160, 30));
 
         em.setBackground(new java.awt.Color(51, 51, 51));
         em.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        em.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        em.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         page.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 160, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Email:");
         page.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 100, 30));
 
         gn.setBackground(new java.awt.Color(51, 51, 51));
         gn.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        gn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         page.add(gn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 160, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel9.setText("User Name:");
         page.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 100, 30));
 
         un.setBackground(new java.awt.Color(51, 51, 51));
         un.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        un.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        un.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         page.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 160, 30));
 
         sid.setBackground(new java.awt.Color(51, 51, 51));
         sid.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        sid.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sid.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         page.add(sid, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 160, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel10.setText("USER ID:");
         page.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 100, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel11.setText("Gender");
         page.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, 30));
 
@@ -224,37 +224,36 @@ public class individualPrinting extends javax.swing.JFrame {
         page.add(name7, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 349, 160, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel12.setText("Account Type:");
         page.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 120, 30));
 
-        at.setBackground(new java.awt.Color(51, 51, 51));
-        at.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        at.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        page.add(at, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 160, 30));
+        st.setBackground(new java.awt.Color(51, 51, 51));
+        st.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        st.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        page.add(st, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 160, 30));
 
         jLabel13.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText(" Status:");
         page.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, 30));
 
-        us.setBackground(new java.awt.Color(51, 51, 51));
-        us.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        us.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        page.add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 160, 30));
-
         image.setBackground(new java.awt.Color(0, 0, 0));
         image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        image.setText("No image Found");
         page.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 108, 350, 360));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("scc pic");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 80, 68));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-scorecard-64.png"))); // NOI18N
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 68));
 
         page.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, 90));
+
+        ss.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        ss.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        page.add(ss, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 160, 30));
 
         jPanel1.add(page);
         page.setBounds(30, 120, 700, 550);
@@ -323,7 +322,6 @@ public class individualPrinting extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel at;
     public javax.swing.JLabel em;
     public javax.swing.JLabel fn;
     public javax.swing.JLabel gn;
@@ -350,7 +348,8 @@ public class individualPrinting extends javax.swing.JFrame {
     public javax.swing.JLabel name7;
     private javax.swing.JPanel page;
     public javax.swing.JLabel sid;
+    public javax.swing.JLabel ss;
+    public javax.swing.JLabel st;
     public javax.swing.JLabel un;
-    public javax.swing.JLabel us;
     // End of variables declaration//GEN-END:variables
 }

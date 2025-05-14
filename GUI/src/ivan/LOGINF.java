@@ -283,89 +283,87 @@ public class LOGINF extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userActionPerformed
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        if (LOGINF(user.getText(), pass.getText())) {
+            // Check if the account status is active
+            if (!status.equals("Active")) {
+                JOptionPane.showMessageDialog(null, "Account is not active, Contact the admin!");
+            } else {
+                // Account is active, check user type
+                if (type.equals("Admin")) {
+                    JOptionPane.showMessageDialog(null, "Login Successfully!");
+                    AdminDashboardd ad = new AdminDashboardd();
+                    ad.setVisible(true);
+                    this.dispose();
+                } else if (type.equals("User")) {
+                    JOptionPane.showMessageDialog(null, "Login Successfully!");
+                    userDashboard ud = new userDashboard();
+                    ud.setVisible(true);
+                    this.dispose();
+                } else {
+                    // If the user type is neither Admin nor user
+                    JOptionPane.showMessageDialog(null, "Invalid Account.");
+                }
+            }
+        } else {
+            // If login is not successful
+            JOptionPane.showMessageDialog(null, "No account type found. Please try again!");
+        }
+    }//GEN-LAST:event_loginActionPerformed
 
-    private void cancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseEntered
-       buttonBorderAnimation(cancel);           
-    }//GEN-LAST:event_cancelMouseEntered
-
-    private void cancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseExited
-         buttonDefaultColor(cancel);
-   
-    }//GEN-LAST:event_cancelMouseExited
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        Registerform rf = new Registerform();
-          rf .setVisible(true);
-          this.dispose(); 
-        
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void clMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clMouseClicked
-        buttonBorderAnimation(cancel);
-    }//GEN-LAST:event_clMouseClicked
-
-    private void clMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clMouseEntered
-           buttonBorderAnimation(cancel);
-    }//GEN-LAST:event_clMouseEntered
-
-    private void clMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clMouseExited
-          
-    }//GEN-LAST:event_clMouseExited
-
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-       
-    }//GEN-LAST:event_jLabel3MouseEntered
-
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3MouseExited
-
-    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passActionPerformed
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_closeMouseClicked
 
     private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
         setState(ICONIFIED);
     }//GEN-LAST:event_minimizeMouseClicked
 
-    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
-         System.exit(0);
-    }//GEN-LAST:event_closeMouseClicked
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passActionPerformed
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        Registerform rf = new Registerform();
+        rf .setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void cancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseExited
+        buttonDefaultColor(cancel);
+    }//GEN-LAST:event_cancelMouseExited
+
+    private void cancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseEntered
+        buttonBorderAnimation(cancel);
+    }//GEN-LAST:event_cancelMouseEntered
 
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
-        
+
     }//GEN-LAST:event_cancelMouseClicked
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-            if (LOGINF(user.getText(), pass.getText())) { 
-        // Check if the account status is active
-        if (!status.equals("Active")) {
-            JOptionPane.showMessageDialog(null, "Account is not active, Contact the admin!");
-        } else {
-            // Account is active, check user type
-            if (type.equals("Admin")) {
-                JOptionPane.showMessageDialog(null, "Login Successfully!");
-                AdminDashboardd ad = new AdminDashboardd();
-                ad.setVisible(true);
-                this.dispose();
-            } else if (type.equals("User")) {
-                JOptionPane.showMessageDialog(null, "Login Successfully!");
-                userDashboard ud = new userDashboard();
-                ud.setVisible(true);
-                this.dispose();
-            } else {
-                // If the user type is neither Admin nor user
-                JOptionPane.showMessageDialog(null, "Invalid Account.");
-            }
-        }
-    } else {
-        // If login is not successful
-        JOptionPane.showMessageDialog(null, "No account type found. Please try again!");
-    }
-    }//GEN-LAST:event_loginActionPerformed
+    private void clMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clMouseExited
+
+    }//GEN-LAST:event_clMouseExited
+
+    private void clMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clMouseEntered
+        buttonBorderAnimation(cancel);
+    }//GEN-LAST:event_clMouseEntered
+
+    private void clMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clMouseClicked
+        buttonBorderAnimation(cancel);
+    }//GEN-LAST:event_clMouseClicked
+
+    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userActionPerformed
 
     /**
      * @param args the command line arguments

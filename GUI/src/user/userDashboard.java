@@ -3,7 +3,6 @@ package user;
 
 import user.AccountDetails;
 import ivan.LOGINF;
-import Admin.userPage;
 import config.Session;
 import javax.swing.JOptionPane;
 
@@ -89,8 +88,8 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-admin-100.png"))); // NOI18N
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 108, 84));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-user-group-skin-type-7-100.png"))); // NOI18N
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 108, 84));
 
         navbar.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 110));
 
@@ -124,7 +123,7 @@ public class userDashboard extends javax.swing.JFrame {
 
         acc.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         acc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        acc.setText("ACCOUNT");
+        acc.setText("USER ACCOUNT");
         jPanel5.add(acc);
         acc.setBounds(0, 120, 220, 26);
 
@@ -139,7 +138,7 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-admin-100.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-user-group-skin-type-7-100.png"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -149,7 +148,7 @@ public class userDashboard extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("USER PAGE");
+        jLabel2.setText("GRADES");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 220, 30));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 220, 160));
@@ -214,15 +213,14 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-      userPage up = new userPage();
-      up.setVisible(true);
-      this.dispose();
+    UserTable ut= new UserTable();
+      ut.setVisible(true);
+    this.dispose();
+   
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-      userPage up = new userPage();
-      up.setVisible(true);
-      this.dispose();
+    
     }//GEN-LAST:event_jLabel4MouseClicked
 
     /**

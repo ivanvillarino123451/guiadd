@@ -80,7 +80,7 @@ public class AccountDetails extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("LOGOUT");
+        jLabel5.setText("BACK");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -214,20 +214,19 @@ public class AccountDetails extends javax.swing.JFrame {
             this.dispose();
         }else{
             iddisplay.setText("ID: "+sess.getSid());
-            fn.setText(""+sess.getEmail());
-            ln.setText(""+sess.getEmail());
             acc_fn.setText(""+sess.getFname());
             acc_ln.setText(""+sess.getLname());
+            fn.setText(""+sess.getFname());
+            ln.setText(""+sess.getLname());
             em.setText(""+sess.getEmail());
             un.setText(""+sess.getUsername());
              }
     }//GEN-LAST:event_formWindowActivated
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-          LOGINF If = new LOGINF();
-          JOptionPane.showMessageDialog(null," Logged-out ");
-          If.setVisible(true);
-          this.dispose();  
+        userDashboard udb = new userDashboard();
+        udb.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void fnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnActionPerformed

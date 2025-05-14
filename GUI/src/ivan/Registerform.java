@@ -355,6 +355,12 @@ public class Registerform extends javax.swing.JFrame {
         }else if(ps.getText().length()<8){
         JOptionPane.showMessageDialog(null,"Password character should be 8 above");
         ps.setText("");
+        }
+          // Check if email is not a valid Gmail address
+       else if (!em.getText().contains("@gmail.com")) {
+        JOptionPane.showMessageDialog(null, "Please enter a valid Gmail address.");
+        em.setText("");  // Optional: Clear the email field
+            
         }else if(duplicateCheck()){
         System.out.println("duplicate Exist!");  
         }else{
@@ -363,10 +369,10 @@ public class Registerform extends javax.swing.JFrame {
         try{
             String pass = passwordHasher. hashPassword(ps.getText());
       
-            String sql ="INSERT INTO tbl_student (s_fname, s_lname, s_email, s_username, s_password, s_gender, s_type, s_status,s_image)"
+            String sql ="INSERT INTO tbl_student (s_fname, s_lname, s_email, s_username, s_password, s_gender, s_type, s_status,s_image, s_favsports)"
                 + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"
                   +un.getText()+"','"+pass+"','"+gn.getText()+"','"
-                      +st.getSelectedItem()+"', 'Pending','"+destination+"')";
+                      +st.getSelectedItem()+"', 'Pending','"+destination+"', 'VB')";
         
          if(dbc.insertData(sql) ==1){
            JOptionPane.showMessageDialog(null,"Inserted Success!"); 

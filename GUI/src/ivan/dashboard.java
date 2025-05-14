@@ -296,14 +296,14 @@ public class dashboard extends javax.swing.JFrame {
            this.dispose();
     }//GEN-LAST:event_adminMouseClicked
 
-    private void maindesktopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maindesktopMouseClicked
-      
-    }//GEN-LAST:event_maindesktopMouseClicked
-
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
       
    
     }//GEN-LAST:event_formWindowActivated
+
+    private void maindesktopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maindesktopMouseClicked
+
+    }//GEN-LAST:event_maindesktopMouseClicked
 
     /**
      * @param args the command line arguments
@@ -351,7 +351,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label1;
-    public javax.swing.JDesktopPane maindesktop;
+    private javax.swing.JDesktopPane maindesktop;
     private javax.swing.JLabel minimize;
     private javax.swing.JPanel navbar;
     private javax.swing.JPanel reportspane;

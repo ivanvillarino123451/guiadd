@@ -1,7 +1,6 @@
 package Admin;
 
 
-import user.productForm;
 import user.usersForm;
 import ivan.LOGINF;
 import config.Session;
@@ -129,12 +128,12 @@ public class AdminDashboardd extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("USER");
+        jLabel7.setText("USER FORM");
         jPanel5.add(jLabel7);
         jLabel7.setBounds(0, 120, 220, 26);
 
         user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-user-group-skin-type-7-100.png"))); // NOI18N
+        user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-admin-100.png"))); // NOI18N
         user.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userMouseClicked(evt);
@@ -155,11 +154,11 @@ public class AdminDashboardd extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("PRODUCTS");
+        jLabel8.setText("TEACHER");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 220, -1));
 
         user1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        user1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/productsssss.png"))); // NOI18N
+        user1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/icons8-admin-100.png"))); // NOI18N
         user1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 user1MouseClicked(evt);
@@ -218,9 +217,10 @@ public class AdminDashboardd extends javax.swing.JFrame {
     }//GEN-LAST:event_user1MouseClicked
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-      productForm pf = new productForm();
+      TeacherForm pf = new TeacherForm();
       pf.setVisible(true);
-      this.dispose(); 
+      this.dispose();
+   
     }//GEN-LAST:event_jPanel4MouseClicked
 
     /**

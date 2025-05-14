@@ -1,7 +1,8 @@
-package user;
+ package user;
 
 
 import Admin.individualPrinting;
+import Admin.AdminDashboardd;
 import Admin.createUserForm;
 import config.Session;
 import config.dbConnector;
@@ -36,7 +37,7 @@ public class usersForm extends javax.swing.JFrame {
     }
     
         Color navcolor = new Color(0,204,204);
-        Color hovercolor = new Color(0,51,102);
+        Color hovercolor = new Color(0,153,153);
     
     public void displayData(){
         try{
@@ -94,7 +95,7 @@ public class usersForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("USERS FORM");
+        jLabel1.setText("USER FORM");
         jPanel2.add(jLabel1);
         jLabel1.setBounds(10, 10, 290, 30);
 
@@ -152,7 +153,7 @@ public class usersForm extends javax.swing.JFrame {
 
         acc_lname.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        acc_lname.setText("USERS");
+        acc_lname.setText("ADMIN");
         navbar.add(acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 160, 20));
 
         p_edit.setBackground(new java.awt.Color(0, 204, 204));
@@ -175,7 +176,7 @@ public class usersForm extends javax.swing.JFrame {
         p_edit.add(acc_lname3);
         acc_lname3.setBounds(0, 10, 160, 20);
 
-        navbar.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 160, 40));
+        navbar.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 160, 40));
 
         print.setBackground(new java.awt.Color(0, 204, 204));
         print.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -194,6 +195,17 @@ public class usersForm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("PRINT");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
+        });
         print.add(jLabel2);
         jLabel2.setBounds(0, 10, 160, 20);
 
@@ -226,50 +238,9 @@ public class usersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_userMouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-     int rowindex = studentsTable.getSelectedRow();
-       
-       if(rowindex < 0){
-         JOptionPane.showMessageDialog(null,"Please select an item");
-       }else{
-            try{
-            dbConnector dbc = new dbConnector();
-            TableModel tbl = studentsTable.getModel();
-            
-            ResultSet rs = dbc.getData("SELECT * FROM tbl_student WHERE s_id = '"+tbl.getValueAt(rowindex,0)+"'");
-            if(rs.next()){
-            createUserForm crf = new createUserForm();
-            crf.sid.setText(""+rs.getInt("s_id"));
-            crf.fn.setText(""+rs.getString("s_fname"));
-            crf.ln.setText(""+rs.getString("s_lname"));
-            crf.em.setText(""+rs.getString("s_email"));
-            crf.un.setText(""+rs.getString("s_username"));
-            crf.ps.setText(""+rs.getString("s_password"));
-            crf.gn.setText(""+rs.getString("s_gender"));
-            crf.stat.setText(""+rs.getString("s_status"));
-            crf.st.setSelectedItem(""+rs.getString("s_type"));
-            crf.ss.setSelectedItem(""+rs.getString("s_status"));
-            crf.image.setIcon(crf.ResizeImage(rs.getString("s_image"),null,crf.image));
-            crf.oldpath = rs.getString("s_image");
-            crf.path = rs.getString("s_image");
-            crf.destination = rs.getString("s_image");
-            crf.add.setEnabled(false);
-            crf.update.setEnabled(true);
-            crf.setVisible(true);
-            
-            if( rs.getString("s_image").isEmpty()){
-                crf.select.setEnabled(true);
-                crf.remove.setEnabled(false);                
-            }else{
-                crf.select.setEnabled(false);
-                crf.remove.setEnabled(true);      
-            }
-            
-                this.dispose();
-            }           
-        }catch(SQLException ex){
-              System.out.println(""+ex);
-            }
-       }
+     AdminDashboardd adb = new AdminDashboardd();
+        adb.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -306,13 +277,14 @@ public class usersForm extends javax.swing.JFrame {
             
             ResultSet rs = dbc.getData("SELECT * FROM tbl_student WHERE s_id = '"+tbl.getValueAt(rowindex,0)+"'");
             if(rs.next()){
+                
             createUserForm crf = new createUserForm();
             crf.sid.setText(""+rs.getInt("s_id"));
             crf.fn.setText(""+rs.getString("s_fname"));
             crf.ln.setText(""+rs.getString("s_lname"));
             crf.em.setText(""+rs.getString("s_email"));
             crf.un.setText(""+rs.getString("s_username"));
-            crf.ps.setText(""+rs.getString("s_email"));
+            crf.ps.setText(""+rs.getString("s_password"));
             crf.gn.setText(""+rs.getString("s_gender"));
             crf.st.setSelectedItem(""+rs.getString("s_type"));
             crf.ss.setSelectedItem(""+rs.getString("s_status"));
@@ -351,20 +323,60 @@ public class usersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_p_editMouseExited
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-      
-      individualPrinting ip = new individualPrinting();
-       ip.setVisible(true);
+       int rowindex = studentsTable.getSelectedRow();
        
+       if(rowindex < 0){
+         JOptionPane.showMessageDialog(null,"Please select an item");
+       }else{
+            try{
+            dbConnector dbc = new dbConnector();
+            TableModel tbl = studentsTable.getModel();
+            
+            ResultSet rs = dbc.getData("SELECT * FROM tbl_student WHERE s_id = '"+tbl.getValueAt(rowindex,0)+"'");
+            if(rs.next()){
+                
+            individualPrinting ipg = new individualPrinting();
+            ipg.sid.setText(""+rs.getInt("s_id"));
+            ipg.fn.setText(""+rs.getString("s_fname"));
+            ipg.ln.setText(""+rs.getString("s_lname"));
+            ipg.em.setText(""+rs.getString("s_email"));
+            ipg.un.setText(""+rs.getString("s_username"));
+            ipg.em.setText(""+rs.getString("s_password"));
+            ipg.gn.setText(""+rs.getString("s_gender"));
+            ipg.st.setText(""+rs.getString("s_type"));
+            ipg.ss.setText(""+rs.getString("s_status"));
+            ipg.image.setIcon(ipg.ResizeImage(rs.getString("s_image"),null,ipg.image));
+            ipg.setVisible(true);
+            this.dispose();
+            }
+        }catch(SQLException ex){
+              System.out.println(""+ex);
+            }
+       }
+       
+
 
     }//GEN-LAST:event_printMouseClicked
 
     private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        print.setBackground(hovercolor);
+        print.setBackground(hovercolor); 
     }//GEN-LAST:event_printMouseEntered
 
     private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
          print.setBackground(navcolor);
     }//GEN-LAST:event_printMouseExited
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+                
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+      print.setBackground(hovercolor); 
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+       print.setBackground(navcolor); 
+    }//GEN-LAST:event_jLabel2MouseExited
 
     /**
      * @param args the command line arguments

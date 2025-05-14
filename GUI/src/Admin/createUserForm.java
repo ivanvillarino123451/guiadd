@@ -1,4 +1,4 @@
-package Admin;
+    package Admin;
 
 import user.usersForm;
 import config.dbConnector;
@@ -37,6 +37,7 @@ public class createUserForm extends javax.swing.JFrame {
      */
     public createUserForm() {
         initComponents();
+        
     }
     
     public String destination ="";
@@ -205,7 +206,6 @@ public class createUserForm extends javax.swing.JFrame {
         jlabel3 = new javax.swing.JLabel();
         gn = new javax.swing.JTextField();
         jlabl1 = new javax.swing.JLabel();
-        stat = new javax.swing.JTextField();
         jlabel2 = new javax.swing.JLabel();
         jlabel4 = new javax.swing.JLabel();
         ps = new javax.swing.JPasswordField();
@@ -214,7 +214,6 @@ public class createUserForm extends javax.swing.JFrame {
         jlabl2 = new javax.swing.JLabel();
         fn = new javax.swing.JTextField();
         add = new javax.swing.JButton();
-        jlabel6 = new javax.swing.JLabel();
         jlabel7 = new javax.swing.JLabel();
         em = new javax.swing.JTextField();
         un = new javax.swing.JTextField();
@@ -231,6 +230,8 @@ public class createUserForm extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
         select = new javax.swing.JButton();
         remove = new javax.swing.JButton();
+        stat = new javax.swing.JTextField();
+        jlabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -271,16 +272,6 @@ public class createUserForm extends javax.swing.JFrame {
         jlabl1.setToolTipText("");
         jPanel5.add(jlabl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 110, 30));
 
-        stat.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        stat.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        stat.setAutoscrolls(false);
-        stat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statActionPerformed(evt);
-            }
-        });
-        jPanel5.add(stat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 270, 30));
-
         jlabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jlabel2.setForeground(new java.awt.Color(255, 255, 255));
         jlabel2.setText("Email:");
@@ -302,6 +293,7 @@ public class createUserForm extends javax.swing.JFrame {
 
         st.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         st.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
+        st.setToolTipText("");
         st.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stActionPerformed(evt);
@@ -339,11 +331,6 @@ public class createUserForm extends javax.swing.JFrame {
         });
         jPanel5.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 120, 40));
 
-        jlabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jlabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jlabel6.setText("Status :");
-        jPanel5.add(jlabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 80, 30));
-
         jlabel7.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jlabel7.setForeground(new java.awt.Color(255, 255, 255));
         jlabel7.setText("Gender :");
@@ -371,6 +358,7 @@ public class createUserForm extends javax.swing.JFrame {
 
         ss.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         ss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
+        ss.setToolTipText("");
         ss.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ssActionPerformed(evt);
@@ -472,6 +460,12 @@ public class createUserForm extends javax.swing.JFrame {
         jPanel5.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 130, 40));
 
         jPanel1.setLayout(null);
+
+        image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMouseClicked(evt);
+            }
+        });
         jPanel1.add(image);
         image.setBounds(10, 10, 350, 370);
 
@@ -505,199 +499,229 @@ public class createUserForm extends javax.swing.JFrame {
         });
         jPanel5.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 520, 130, 40));
 
+        stat.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        stat.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        stat.setAutoscrolls(false);
+        stat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statActionPerformed(evt);
+            }
+        });
+        jPanel5.add(stat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 270, 30));
+
+        jlabel9.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jlabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jlabel9.setText("Status :");
+        jPanel5.add(jlabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 90, 30));
+
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 640));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnActionPerformed
+    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
+        remove.setEnabled(false);
+        select.setEnabled(true);
+        image.setIcon(null);
+        destination = "";
+        path = "";
+    }//GEN-LAST:event_removeActionPerformed
+
+    private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lnActionPerformed
+    }//GEN-LAST:event_removeMouseClicked
 
-    private void gnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gnActionPerformed
+    private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            try {
+                selectedFile = fileChooser.getSelectedFile();
+                destination = "src/images/" + selectedFile.getName();
+                path  = selectedFile.getAbsolutePath();
+
+                if(FileExistenceChecker(path) == 1){
+                    JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
+                    destination = "";
+                    path="";
+                }else{
+                    image.setIcon(ResizeImage(path, null, image));
+                    select.setEnabled(false);
+                    remove.setEnabled(true);
+                }
+            } catch (Exception ex) {
+                System.out.println("File Error!");
+            }
+        }
+    }//GEN-LAST:event_selectActionPerformed
+
+    private void selectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_gnActionPerformed
+    }//GEN-LAST:event_selectMouseClicked
 
-    private void statActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statActionPerformed
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_statActionPerformed
+    }//GEN-LAST:event_deleteActionPerformed
 
-    private void stActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stActionPerformed
+    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_stActionPerformed
+    }//GEN-LAST:event_deleteMouseClicked
 
-    private void fnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnActionPerformed
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fnActionPerformed
+    }//GEN-LAST:event_clearActionPerformed
 
-    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_addMouseClicked
+    }//GEN-LAST:event_clearMouseClicked
 
-    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        usersForm usf = new usersForm();
+        usf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cancelActionPerformed
 
-        if(fn.getText().isEmpty()||ln.getText().isEmpty()||stat.getText().isEmpty()
-            ||gn.getText().isEmpty()||ps.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"All Fields are required!");
+    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelMouseClicked
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+       
+        if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()
+                ||un.getText().isEmpty()||ps.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"All Fields are required!");
         }else if(ps.getText().length()<8){
-            JOptionPane.showMessageDialog(null,"Password character should be 8 above");
-            ps.setText("");
+        JOptionPane.showMessageDialog(null,"Password character should be 8 above");
+        ps.setText("");
+        }
+          // Check if email is not a valid Gmail address
+       else if (!em.getText().contains("@gmail.com")) {
+        JOptionPane.showMessageDialog(null, "Please enter a valid Gmail address.");
+        em.setText("");  // Optional: Clear the email field
+            
         }else if(duplicateCheck()){
-            System.out.println("duplicate Exist!");
+        System.out.println("duplicate Exist!"); 
+        
         }else{
             dbConnector dbc = new dbConnector();
-            String sql = "INSERT INTO tbl_student(s_fname, s_lname, s_email, s_username, s_password, s_gender, s_type, s_status, s_image) VALUES('" 
-                    + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" +ps.getText()+"','" 
-                    + gn.getText() + "', '"+ st.getSelectedItem() +"','"+ss.getSelectedItem()+"','"+destination+"')";
+            dbc.updateData("UPDATE tbl_student SET s_fname = '"+fn.getText()+"', s_lname = '"+ln.getText()
+                +"',s_email = '"+em.getText()+"', s_username = '"+un.getText()+"', s_password = '"+ps.getText()
+                +"', s_type = '"+st.getSelectedItem()+"', s_status = '"+ss.getSelectedItem()
+                +"',s_image = '"+destination+"' WHERE s_id = '"+sid.getText()+"'");
 
-            
-            
-            
-            if (dbc.insertData(sql) == 1) {
+            if(destination.isEmpty()){
+                File existingFile = new File(oldpath);
+                if(existingFile.exists()){
+                    existingFile.delete();
+                }
+            }else{
+                if(!(oldpath.equals(path))){
+                    imageUpdater(oldpath,path);
+                }
+            }
+            usersForm uf = new usersForm();
+            uf.setVisible(true);
+            this.dispose();
                 
+        }
+    }//GEN-LAST:event_updateActionPerformed
+
+    private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateMouseClicked
+
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_refreshActionPerformed
+
+    private void refreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_refreshMouseClicked
+
+    private void sidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sidActionPerformed
+
+    private void ssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ssActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ssActionPerformed
+
+    private void unActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unActionPerformed
+
+    private void emActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+           
+        if(fn.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()
+                ||un.getText().isEmpty()||ps.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"All Fields are required!");
+        }else if(ps.getText().length()<8){
+        JOptionPane.showMessageDialog(null,"Password character should be 8 above");
+        ps.setText("");
+        }
+          // Check if email is not a valid Gmail address
+       else if (!em.getText().contains("@gmail.com")) {
+        JOptionPane.showMessageDialog(null, "Please enter a valid Gmail address.");
+        em.setText("");  // Optional: Clear the email field
+            
+        }else if(duplicateCheck()){
+        System.out.println("duplicate Exist!");  
+        
+        }else{
+            dbConnector dbc = new dbConnector();
+            String sql = "INSERT INTO tbl_student(s_fname, s_lname, s_email, s_username, s_password, s_gender, s_type, s_status, s_image, s_favsports) VALUES('"
+            + fn.getText() + "','" + ln.getText() + "','" + em.getText() + "','" + un.getText() + "','" +ps.getText()+"','"
+            + gn.getText() + "', '"+ st.getSelectedItem() +"','"+ss.getSelectedItem()+"','"+destination+"','')";
+
+            if (dbc.insertData(sql) == 1) {
+
                 try{
-                Files.copy(selectedFile.toPath(),new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
+                    Files.copy(selectedFile.toPath(),new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
                 }catch(IOException ex){
-                  System.out.println("Insert Image Error: "+ex);
+                    System.out.println("Insert Image Error: "+ex);
                 }
                 JOptionPane.showMessageDialog(null, "Registration Successfully!");
-                   usersForm uf = new usersForm();
-                   uf.setVisible(true);
-                   this.dispose();
+                usersForm uf = new usersForm();
+                uf.setVisible(true);
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Connection Error!");
             }
         }
     }//GEN-LAST:event_addActionPerformed
 
-    private void emActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emActionPerformed
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_emActionPerformed
+    }//GEN-LAST:event_addMouseClicked
 
-    private void unActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unActionPerformed
+    private void fnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_unActionPerformed
+    }//GEN-LAST:event_fnActionPerformed
 
-    private void ssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ssActionPerformed
+    private void stActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ssActionPerformed
+    }//GEN-LAST:event_stActionPerformed
 
-    private void sidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sidActionPerformed
+    private void gnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sidActionPerformed
+    }//GEN-LAST:event_gnActionPerformed
 
-    private void refreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshMouseClicked
+    private void lnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_refreshMouseClicked
+    }//GEN-LAST:event_lnActionPerformed
 
-    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+    private void statActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_refreshActionPerformed
+    }//GEN-LAST:event_statActionPerformed
 
-    private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
+    private void imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateMouseClicked
-
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-     if(fn.getText().isEmpty()||ln.getText().isEmpty()||stat.getText().isEmpty()
-            ||gn.getText().isEmpty()||ps.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"All Fields are required!");
-        }else if(ps.getText().length()<8){
-            JOptionPane.showMessageDialog(null,"Password character should be 8 above");
-            ps.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist!");
-        }else{
-          dbConnector dbc = new dbConnector();
-            dbc.updateData("UPDATE tbl_student SET s_fname = '"+fn.getText()+"', s_lname = '"+ln.getText()
-               +"',s_email = '"+em.getText()+"', s_username = '"+un.getText()+"', s_password = '"+ps.getText()
-                  +"', s_type = '"+st.getSelectedItem()+"', s_status = '"+ss.getSelectedItem()
-                    +"',s_image = '"+destination+"' WHERE s_id = '"+sid.getText()+"'");
-
-            if(destination.isEmpty()){
-             File existingFile = new File(oldpath);
-             if(existingFile.exists()){
-                existingFile.delete();
-             }          
-        }else{
-              if(!(oldpath.equals(path))){
-                  imageUpdater(oldpath,path);
-              }
-            }
-            usersForm uf = new usersForm();
-            uf.setVisible(true);
-            this.dispose();
-       
-        }
-    }//GEN-LAST:event_updateActionPerformed
-
-    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cancelMouseClicked
-
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-    usersForm usf = new usersForm();
-    usf.setVisible(true);
-    this.dispose();
-    }//GEN-LAST:event_cancelActionPerformed
-
-    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clearMouseClicked
-
-    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clearActionPerformed
-
-    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteMouseClicked
-
-    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteActionPerformed
-
-    private void selectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_selectMouseClicked
-
-    private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
-           JFileChooser fileChooser = new JFileChooser();
-                int returnValue = fileChooser.showOpenDialog(null);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    try {
-                        selectedFile = fileChooser.getSelectedFile();
-                        destination = "src/images/" + selectedFile.getName();
-                        path  = selectedFile.getAbsolutePath();
-                        
-                        
-                        if(FileExistenceChecker(path) == 1){
-                          JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
-                            destination = "";
-                            path="";
-                        }else{
-                            image.setIcon(ResizeImage(path, null, image));
-                            select.setEnabled(false);
-                            remove.setEnabled(true);
-                        }
-                    } catch (Exception ex) {
-                        System.out.println("File Error!");
-                    }
-                }
-    }//GEN-LAST:event_selectActionPerformed
-
-    private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_removeMouseClicked
-
-    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
-       remove.setEnabled(false);
-       select.setEnabled(true);
-       image.setIcon(null);
-       destination = "";
-       path = "";
-    }//GEN-LAST:event_removeActionPerformed
+    }//GEN-LAST:event_imageMouseClicked
 
     /**
      * @param args the command line arguments
@@ -749,9 +773,9 @@ public class createUserForm extends javax.swing.JFrame {
     private javax.swing.JLabel jlabel3;
     private javax.swing.JLabel jlabel4;
     private javax.swing.JLabel jlabel5;
-    private javax.swing.JLabel jlabel6;
     private javax.swing.JLabel jlabel7;
     private javax.swing.JLabel jlabel8;
+    private javax.swing.JLabel jlabel9;
     private javax.swing.JLabel jlabl1;
     private javax.swing.JLabel jlabl2;
     private javax.swing.JLabel jlabl3;

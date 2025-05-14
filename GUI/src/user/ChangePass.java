@@ -1,6 +1,4 @@
 package user;
-
-
 import ivan.LOGINF;
 import Admin.AdminDashboardd;
 import config.Session;
@@ -261,39 +259,71 @@ public class ChangePass extends javax.swing.JFrame {
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
       
-        try{
-        dbConnector  dbc = new dbConnector();
-        Session sess = Session.getInstance();
-        
- 
-        String query = "SELECT * FROM tbl_student WHERE s_id = '"+sess.getSid()+"'";
-        ResultSet rs = dbc.getData(query); 
-        
-        if(rs.next()){
-        String  olddbpass = rs.getString("s_password");
+      try {   
+    dbConnector dbc = new dbConnector();
+    Session sess = Session.getInstance();
+
+    String query = "SELECT * FROM tbl_student WHERE s_id = '" + sess.getSid() + "'";
+    ResultSet rs = dbc.getData(query);
+    
+    if (rs.next()) {
+        String olddpass = rs.getString("s_password");
+        String storedSports= rs.getString("s_favsports");
+
         String oldhash = passwordHasher.hashPassword(oldpass.getText());
-          
-          if(olddbpass.equals(oldhash)){
-             String npass = passwordHasher.hashPassword(newpass.getText());
-             dbc.updateData("UPDATE tbl_student SET s_password ='"+npass+"'");
-             JOptionPane.showMessageDialog(null,"Successfully Updated!!");
-             LOGINF lf = new LOGINF();
-             lf.setVisible(true);
-             this.dispose();
-             
-          }else{
-              JOptionPane.showMessageDialog(null,"Old password is Incorrect");
-          }  
-          
+
+        if (olddpass.equals(oldhash)) {
+            String studentstoredSports = JOptionPane.showInputDialog(null, "What is your sports?");
+
+            if (storedSports != null && storedSports.equalsIgnoreCase(storedSports)) {
+    
+                String npass = passwordHasher.hashPassword(newpass.getText());
+
+                String checkPasswordQuery = "SELECT s_password FROM tbl_student WHERE s_id = '" + sess.getSid() + "'";
+                ResultSet rsHistory = dbc.getData(checkPasswordQuery);
+
+                boolean isPasswordUsedBefore = false;
+                
+                while (rsHistory.next()) {
+                    String oldPasswordHistory = rsHistory.getString("s_password");
+                    if (passwordHasher.hashPassword(newpass.getText()).equals(oldPasswordHistory)) {
+                        isPasswordUsedBefore = true;
+                        break;
+                    }
+                }
+   
+                if (isPasswordUsedBefore) {
+                    JOptionPane.showMessageDialog(null, "You cannot reuse an old password.");
+                } else {
+                    
+              dbc.updateData("UPDATE tbl_student SET s_password = '" + npass + "' WHERE s_id = '" + sess.getSid() + "'");
+                 
+                    dbc.updateData("INSERT INTO tbl_student_password_history (s_id, s_password) VALUES ('" + sess.getSid() + "', '" + olddpass + "')");
+
+                    JOptionPane.showMessageDialog(null, "Password Successfully Updated!");
+
+
+                    LOGINF lf = new LOGINF();
+                    lf.setVisible(true);
+                    this.dispose();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "The answer to your sports is incorrect.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Old Password is Incorrect");
         }
-        }catch(SQLException | NoSuchAlgorithmException ex){
-            System.out.println(""+ex);
-        }
+    }   
+} catch (SQLException | NoSuchAlgorithmException ex) {
+    System.out.println("" + ex);
+}
         
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        // TODO add your handling code here:
+         AccountDetails ad = new AccountDetails();
+        ad.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
 
     /**
